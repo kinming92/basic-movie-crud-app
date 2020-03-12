@@ -1,6 +1,6 @@
-#Summary
+# Summary
 
-Link: https://cse-134b-hw5.firebaseapp.com
+[Website](https://cse-134b-hw5.firebaseapp.com)
 
 ## Files
 - movies.html
