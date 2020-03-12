@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .login-box {
+            font-family: cursive;
+            margin: auto;
+            width: 30%;
+            padding: 10px;
+            background-color: lightsteelblue;
+            font-weight: bold;
+            border: 3px solid #73AD21;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+        }
+
+        body {
+            background-color: #000000da;
+        }
+
+        #login-btn {
+            margin-top: 10px;
+            background-color: black;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        #login-btn:hover{
+            background-color: black;
+            color: lightsteelblue;
+        }
+        label {
+            float: left;
+        }
+
+        input {
+            width: 100%;    
+            margin: auto;
+            padding: 5px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h1>Login</h1>
+        <form id="login-form" name="login-form" action="">
+            <label for="username">Username: </label>
+            <input type="text" name="username" id="username" required><br>
+
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" required><br>
+
+            <button type="submit" formenctype="application/x-www-form-urlencoded" value="login"
+                id="login-btn">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="signup.html">Sign up</a>
+            <p>
+    </div>
+
+    <script type="text/javascript" src="js/login.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CRUD</title>
+        <meta charset="UTF-8">
+        <style>
+
+             /*mobile phone user*/
+        @media screen and (max-width: 400px) {
+            *{
+                font-family: cursive;
+                box-sizing: border-box;
+            }
+
+            body{
+                display: flex;
+                flex-direction: column;
+            }
+            body{
+                background-color:lightsteelblue;     
+            }
+            
+            .nav-header {
+                width: 100%;
+                height: 3.5rem;
+                background-color: black;
+                padding: 0 1.5rem;
+                display: flex;
+                align-items: center;
+            }
+            .nav-menu {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .nav-menu__item-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                
+            }
+
+            .nav-menu__item {
+                margin: 0 1rem;
+                padding: 0;
+            }
+
+            .nav-menu__item a,
+            .nav-menu__item button {
+                font: inherit;
+                background: transparent;
+                border: none;
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+            }
+
+            .nav-menu__item a:hover,
+            .nav-menu__item a:active,
+            .nav-menu__item a.active,
+            .nav-menu__item button:hover,
+            .nav-menu__item button:active {
+                color: lightsteelblue;
+            }
+
+            #logout-btn{
+                
+                border: 0;
+                background: transparent;
+                
+            }
+            #add-movie-btn {
+                background-color: black;
+                box-shadow: 0 1px #666;
+                transform: translateY(4px);
+                color:white;
+            }
+
+            #add-movie-dialog{
+                background-color:lightgoldenrodyellow;
+                z-index: 999;
+            }
+
+            #delete-dialog{
+                background-color: lightsalmon;
+                z-index: 999;
+            }
+
+            #display-list {
+                margin : 0;
+                padding: 0;
+                
+            }
+            #display-list li{
+                border-style: solid;
+                background-color:white; 
+                border-radius: 2px;
+                bottom: 10px;
+                list-style:none;
+            }
+            #display-list li:hover {
+                outline: 0;
+                border: 2px solid #007bff;
+                background: #b3cfff85
+            }
+            #display-list li input:focus {
+                background: #b364ff85
+            }
+            #display-list li input:hover {
+                background: #b364ff85;
+            }
+
+        }
+
+        @media screen and (min-width: 401px) {
+            * {
+                font-family: cursive;
+                box-sizing: border-box;
+            }
+            body{
+                background-color:lightsteelblue;     
+            }
+            .nav-header {
+                width: 100%;
+                height: 3.5rem;
+                background-color: black;
+                padding: 0 1.5rem;
+                display: flex;
+                align-items: center;
+            }
+            .nav-menu {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .nav-menu__item-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                
+            }
+
+            .nav-menu__item {
+                margin: 0 1rem;
+                padding: 0;
+            }
+
+            .nav-menu__item a,
+            .nav-menu__item button {
+                font: inherit;
+                background: transparent;
+                border: none;
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+            }
+
+            .nav-menu__item a:hover,
+            .nav-menu__item a:active,
+            .nav-menu__item a.active,
+            .nav-menu__item button:hover,
+            .nav-menu__item button:active {
+                color: lightsteelblue;
+            }
+
+            #add-movie-btn {
+                /* background-color: black;
+                box-shadow: 0 1px #666;
+                transform: translateY(4px); */
+                cursor: pointer;
+                color:black;
+                float: right;
+            }
+            #add-movie-btn:hover,
+            #add-movie-btn:active {
+                
+                color:lightsteelblue;
+            }
+
+            #add-movie-dialog{
+                background-color:lightgoldenrodyellow;
+                z-index: 99;
+            }
+
+            #display-info-dialog{
+                background-color: lightgoldenrodyellow;
+                z-index: 99;
+                width: 50%;
+            }
+            #delete-dialog{
+                background-color: lightsalmon;
+                z-index: 99;
+            }
+
+            #display-list {
+                margin : 0;
+                padding: 0;
+            }
+            #display-list li{
+                border-style: solid;
+                background-color:white; 
+                border-radius: 2px;
+                bottom: 10px;
+                list-style: none;
+            }
+            #display-list li:hover {
+                outline: 0;
+                border: 2px solid #007bff;
+                background: #b3cfff85
+            }
+            #display-list li input:focus {
+                background: #b364ff85
+            }
+            #display-list li input:hover {
+                background: #b364ff85;
+            }
+        }
+
+        </style>
+    </head>
+
+    <body>
+        <header class="nav-header">
+            <nav class="nav-menu">
+                <ul class="nav-menu__item-list">
+                    <li class="nav-menu__item"><a href="#">Home</a></li>
+                    <li class="nav-menu__item"><a href="#">About</a></li>
+                </ul>
+                <ul class="nav-menu__item-list">
+                    <li class="nav-menu__item"><button type="button" id="logout-btn">Logout</button></li>
+                </ul>
+            </nav>
+        </header>
+
+        <h1>Big List of Movies</h1>
+        
+        <ul class="list" id="display-list">
+        </ul>
+        <span id="movie-listing" >
+                NO Movie Currently Listed
+        </span>
+        <button type="button" id="add-movie-btn">Add Movie</button>
+
+        <dialog id="add-movie-dialog" >
+            <form id="movie-form" method="dialog" action="#">
+            <label for="input-title">Title:</label>
+            <input type="text" id="input-title" name="title" required>
+            <br>
+            <label for="input-year">Year of Release:</label>
+            <input type="number" id="input-year" name="year" required>
+            <br>
+            <label for="input-rating">Rated:</label>
+            <select id="input-rating" name="rating">
+                <option>G</option>
+                <option>PG</option>
+                <option>PG-13</option>
+                <option>R</option>
+                <option>NR</option>
+            </select>
+            <br>
+            <label for="input-genre">Genre:</label>
+            <select id="input-genre" name="genre">
+                <option>Action</option>
+                <option>Adventure</option>
+                <option>Comedy</option>
+                <option>Crime</option>
+                <option>Drama</option>
+                <option>Fantasy</option>
+                <option>Foreign</option>
+                <option>Historical</option>
+                <option>Fiction</option>
+                <option>Horror</option>
+                <option>Magical realism</option>
+                <option>Mystery</option>  
+                <option>Philosophical</option>
+                <option>Political</option>
+                <option>Romance</option>
+                <option>Saga</option>
+                <option>Satire</option>
+                <option>Science fiction</option>
+                <option>Social</option>
+                <option>Speculative</option>
+                <option>Thriller</option>
+                <option>Urban</option>
+                <option>Others</option>
+            </select>
+
+            <div class="user-rating">
+                <label>Please select your rating:</label>
+                <input type="radio" name="userRating" id="user-rating-1" value="1" required> 1
+                <input type="radio" name="userRating" id="user-rating-2" value="2"> 2
+                <input type="radio" name="userRating" id="user-rating-3" value="3"> 3 
+                <input type="radio" name="userRating" id="user-rating-4" value="4"> 4
+                <input type="radio" name="userRating" id="user-rating-5" value="5"> 5  
+                <br>
+            </div>
+            <label>Enter Movie Image Link</label>
+            <input type="text" id="input-img-url" name="image" value="">
+            <br>
+
+            <button type="button" id="movie-dialog-cancel-btn"><img src="images/button_hw4/cancel2.png" alt="cancel" width="25" height="25"/></button>
+            <button type="submit" id="movie-dialog-save-btn" formenctype="application/x-www-form-urlencoded"><img src="images/button_hw4/save2.png" alt="save" width="25" height="25"/></button>
+            </form>
+        </dialog>
+
+        <dialog id="display-info-dialog">
+            <output id="display-info-output">
+                
+            </output>
+            <button type="button" id="display-info-dialog-cancel-btn"><img src="images/button_hw4/cancel2.png" alt="cancel" width= "25" height="25"/></button>
+        </dialog>
+
+        <dialog id="delete-dialog">
+            <output>
+                Delete this?
+            </output>
+            <button type="button" id="delete-dialog-cancel-btn"><img src="images/button_hw4/cancel2.png" alt="cancel" width= "25" height="25"/></button>
+            <button type="button" id="delete-dialog-okay-btn" ><img src="images/button_hw4/delete.png" alt="delete" width= "25" height="25"/></button>
+    
+        </dialog>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.js"></script>
+        <script type="module" src="js/movies.js"></script>
+        
+    </body>
+</html>
