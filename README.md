@@ -1,6 +1,6 @@
 # Summary
 
-[Website](https://cse-134b-hw5.firebaseapp.com)
+[Website](https://basic-movie-crud-app.herokuapp.com/)
 
 ## Files
 - movies.html
@@ -9,6 +9,8 @@
 - movies.js
 - signup.js
 - login.js
+- index.php(deployment)
+- composer.json(deployment)
 
 ## Technologies 
 1. Website is built using Vanilla JavaScript, CSS, and HTML5 
