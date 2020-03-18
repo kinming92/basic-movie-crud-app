@@ -29,7 +29,7 @@
         }
 
         var xhr = new createXHR();
-        xhr.open("POST", "http://localhost:3000/Users", true);
+        xhr.open("POST", "https://movie-website-rest-api.herokuapp.com/Users", true);
 
         //Send the proper header information along with the request
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

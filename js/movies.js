@@ -39,7 +39,7 @@
     
     /* retrieve data from database */
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:3000/movies/movieList?" + `access_token=${accessToken}`, true);
+    xhr.open("GET", "https://movie-website-rest-api.herokuapp.com/movies/movieList?" + `access_token=${accessToken}`, true);
     xhr.onreadystatechange = function(){
         if(xhr.readyState == xhr.DONE && xhr.status == 200){
             
@@ -177,7 +177,7 @@
 
             /* add movie to database through api*/
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost:3000/movies?" + `access_token=${accessToken}`, true);
+            xhr.open("POST", "https://movie-website-rest-api.herokuapp.com/movies?" + `access_token=${accessToken}`, true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function(){
                 if(xhr.readyState == xhr.DONE && xhr.status == 200){
@@ -205,7 +205,7 @@
         }else{  //Edit button is pressed, then save button
 
             var xhr = new XMLHttpRequest();
-            xhr.open("PUT", `http://localhost:3000/movies/${movieKey}/replace?` + `access_token=${accessToken}`, true);
+            xhr.open("PUT", `https://movie-website-rest-api.herokuapp.com/movies/${movieKey}/replace?` + `access_token=${accessToken}`, true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function(){
                 if(xhr.readyState == xhr.DONE && xhr.status == 200){
@@ -373,7 +373,7 @@
         console.log(movieKey);
 
         var xhr = new XMLHttpRequest();
-        xhr.open("DELETE", `http://localhost:3000/movies/${movieKey}?` + `access_token=${accessToken}`, true);
+        xhr.open("DELETE", `https://movie-website-rest-api.herokuapp.com/movies/${movieKey}?` + `access_token=${accessToken}`, true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function(){
             if(xhr.readyState == xhr.DONE && xhr.status == 200){
@@ -415,7 +415,7 @@
         var payload = `access_token=${accessToken}`;
         console.log(payload);
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost:3000/Users/logout?" + `access_token=${accessToken}`, true);
+        xhr.open("POST", "https://movie-website-rest-api.herokuapp.com/Users/logout?" + `access_token=${accessToken}`, true);
         xhr.onreadystatechange = function(){
             if(xhr.readyState == xhr.DONE && xhr.status == 204){
                 console.log("redirect to login page!");

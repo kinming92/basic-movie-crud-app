@@ -4,7 +4,7 @@
     loginForm.addEventListener("submit", function(e){
         e.preventDefault();
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost:3000/Users/login", true);
+        xhr.open("POST", "https://movie-website-rest-api.herokuapp.com/Users/login", true);
 
         //Send the proper header information along with the request
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
