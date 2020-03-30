@@ -85,7 +85,7 @@
         /* create image tag */
         let imageTag = createImgTag("IMG", "img-"+ id, image_url, "" );
         
-        /* create span edit elemtn */
+        /* createeDiv edit elemtn */
         let inputEdit = createTagNTextnode("INPUT", "edit-" + id, " Edit "); //use titleyearrating as the movieKey
         inputEdit.setAttribute("class", "edit" );
         inputEdit.setAttribute("type", "image");
@@ -248,7 +248,7 @@
                     /* create image tag */
                     let imageTag = createImgTag("IMG", "img-"+ responseObj._id, cleanImgUrl, "" );
 
-                    /* create span edit element */
+                    /* createeDiv edit element */
                     //use the movieKey/id = edit-movieKey
                     let inputEdit = createTagNTextnode("INPUT", "edit-" + responseObj._id, " Edit ");
                     inputEdit.setAttribute("class", "edit" );
@@ -347,7 +347,7 @@
            
         // }
 
-        if(e.target && e.target.nodeName == "INPUT" && e.target.className == "edit"){ // If it was a edit span element
+        if(e.target && e.target.nodeName == "INPUT" && e.target.className == "edit"){ // If it was a editeDiv element
             movieKey = e.target.id.replace("edit-","");
             console.log("edit was clicked!", movieKey);
 
@@ -417,8 +417,9 @@
         
                 if(localStorage.length == 1){ //add back the div tag
                     //emptyList.setAttribute("style", "visibility: visible");
-                    var noMoviespan = createTagNTextnode("DIV", "movie-listing", "NO Movie Currently Listed ");
-                    document.body.insertBefore(noMoviespan, addMovieBtn );
+                    let noMovieDiv = createTagNTextnode("DIV", "movie-listing", "NO Movie Currently Listed ");
+                    let parent = addMovieBtn.parentNode.parentNode;
+                    parent.insertBefore(noMovieDiv, addMovieBtn.parentNode );
                 }
                 movieKey = "";
                 deleteDialog.close();
