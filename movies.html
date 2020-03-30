@@ -4,7 +4,6 @@
         <title>CRUD</title>
         <meta charset="UTF-8">
         <style>
-
              /*mobile phone user*/
         @media screen and (max-width: 400px) {
             *{
@@ -117,7 +116,7 @@
 
         @media screen and (min-width: 401px) {
             * {
-                font-family: cursive;
+                font-family: "Helvetica", sans-serif;
                 box-sizing: border-box;
             }
             body{
@@ -170,17 +169,23 @@
                 color: lightsteelblue;
             }
 
+            .add-movie-btn-wrapper {
+                text-align: center;
+            }
             #add-movie-btn {
                 /* background-color: black;
                 box-shadow: 0 1px #666;
                 transform: translateY(4px); */
                 cursor: pointer;
-                color:black;
-                float: right;
+                border: 0;
+                border-radius: 4em;
+                background-color:black;
+                color: white;
+                z-index: 10;
+                font-size: larger;
             }
             #add-movie-btn:hover,
             #add-movie-btn:active {
-                
                 color:lightsteelblue;
             }
 
@@ -199,7 +204,37 @@
                 z-index: 99;
             }
 
-            #display-list {
+            .list {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+            }
+            .list li{
+                list-style: none;
+                background-color:white; 
+                border-radius: 10px;
+                margin: 5px; 
+                padding: 20px;
+                box-shadow: 0 2px 8px #00000042;
+            }
+
+            .list li__img{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+            }
+            .list li img{
+                height: 200px;
+                width: 200px;   
+            }
+
+            .li__actions {
+                display: flex;
+                justify-content: space-evenly;
+                padding: 10px;
+            }
+            /* #display-list {
                 margin : 0;
                 padding: 0;
             }
@@ -220,7 +255,7 @@
             }
             #display-list li input:hover {
                 background: #b364ff85;
-            }
+            } */
         }
 
         </style>
@@ -240,13 +275,19 @@
         </header>
 
         <h1>Big List of Movies</h1>
-        
-        <ul class="list" id="display-list">
-        </ul>
-        <span id="movie-listing" >
+        <main>
+            <div class="wrapper">
+                <ul class="list" id="display-list">
+                </ul>
+            </div>
+        </main>
+       
+        <div id="movie-listing" >
                 NO Movie Currently Listed
-        </span>
-        <button type="button" id="add-movie-btn">Add Movie</button>
+        </div>
+        <div class="add-movie-btn-wrapper">
+            <button type="button" id="add-movie-btn">Add Movie</button>
+        </div>
 
         <dialog id="add-movie-dialog" >
             <form id="movie-form" method="dialog" action="#">
@@ -305,8 +346,20 @@
             <input type="text" id="input-img-url" name="image" value="">
             <br>
 
-            <button type="button" id="movie-dialog-cancel-btn"><img src="images/button_hw4/cancel2.png" alt="cancel" width="25" height="25"/></button>
-            <button type="submit" id="movie-dialog-save-btn" formenctype="application/x-www-form-urlencoded"><img src="images/button_hw4/save2.png" alt="save" width="25" height="25"/></button>
+            <button type="button" id="movie-dialog-cancel-btn">
+                <!-- <img src="images/button_hw4/cancel2.png" alt="cancel" width="25" height="25"/> -->
+                <span style="font-size: 20px; color: red; cursor: pointer;">
+                    <i class="fas fa-times fa-lg"></i>
+                </span>
+                
+            </button>
+            <button type="submit" id="movie-dialog-save-btn" formenctype="application/x-www-form-urlencoded">
+                <!-- <img src="images/button_hw4/save2.png" alt="save" width="25" height="25"/> -->
+                <span style="font-size: 20px; cursor: pointer;">
+                    <i class="far fa-save"></i>
+                </span>
+                
+            </button>
             </form>
         </dialog>
 
@@ -314,19 +367,35 @@
             <output id="display-info-output">
                 
             </output>
-            <button type="button" id="display-info-dialog-cancel-btn"><img src="images/button_hw4/cancel2.png" alt="cancel" width= "25" height="25"/></button>
+            <button type="button" id="display-info-dialog-cancel-btn">
+                <!-- <img src="images/button_hw4/cancel2.png" alt="cancel" width= "25" height="25"/> -->
+                <span style="font-size: 20px; color: red; cursor: pointer;">
+                    <i class="fas fa-times fa-lg"></i>
+                </span>
+            </button>
         </dialog>
 
         <dialog id="delete-dialog">
             <output>
                 Delete this?
             </output>
-            <button type="button" id="delete-dialog-cancel-btn"><img src="images/button_hw4/cancel2.png" alt="cancel" width= "25" height="25"/></button>
-            <button type="button" id="delete-dialog-okay-btn" ><img src="images/button_hw4/delete.png" alt="delete" width= "25" height="25"/></button>
+            <button type="button" id="delete-dialog-cancel-btn">
+                <!-- <img src="images/button_hw4/cancel2.png" alt="cancel" width= "25" height="25"/> -->
+                <span style="font-size: 20px; color: red; cursor: pointer;">
+                    <i class="fas fa-times fa-lg"></i>
+                </span>
+            </button>
+            <button type="button" id="delete-dialog-okay-btn" >
+                <!-- <img src="images/button_hw4/delete.png" alt="delete" width= "25" height="25"/> -->
+                <span style="font-size: 20px; cursor: pointer;">
+                    <i class="far fa-trash-alt"></i>
+                </span>
+            </button>
     
         </dialog>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.11/purify.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
         <script type="module" src="js/movies.js"></script>
         
     </body>

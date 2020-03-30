@@ -55,8 +55,11 @@
                     image: `${responseObj.movies[i].image}`
                 }
                 
-                var text = `${responseObj.movies[i].title} (${responseObj.movies[i].year}) ${responseObj.movies[i].genre} - 
-                ${responseObj.movies[i].rating} - User Rating: ${responseObj.movies[i].userRating}`;
+                var text = 
+                    `${responseObj.movies[i].title} (${responseObj.movies[i].year})
+                    Genre: ${responseObj.movies[i].genre}
+                    Rating: ${responseObj.movies[i].rating}
+                    User Rating: ${responseObj.movies[i].userRating}`;
 
                 createNewMovieListing(`${responseObj.movies[i]._id}`,text, `${responseObj.movies[i].image}`);
                 localStorage.setItem(`${responseObj.movies[i]._id}`,JSON.stringify(item));
@@ -86,7 +89,7 @@
         let inputEdit = createTagNTextnode("INPUT", "edit-" + id, " Edit "); //use titleyearrating as the movieKey
         inputEdit.setAttribute("class", "edit" );
         inputEdit.setAttribute("type", "image");
-        inputEdit.setAttribute("src", "images/button_hw4/edit.png");
+        inputEdit.setAttribute("src", "images/button/edit-regular.svg");
         inputEdit.setAttribute("alt", "edit");
         inputEdit.setAttribute("width", "25");
         inputEdit.setAttribute("height", "25");
@@ -96,15 +99,24 @@
         let inputDelete = createTagNTextnode("INPUT",  "delete-"+ id, "Delete ");
         inputDelete.setAttribute("class", "delete");
         inputDelete.setAttribute("type", "image");
-        inputDelete.setAttribute("src", "images/button_hw4/delete.png");
+        inputDelete.setAttribute("src", "images/button/trash-alt-regular.svg");
         inputDelete.setAttribute("alt", "edit");
         inputDelete.setAttribute("width", "25");
         inputDelete.setAttribute("height", "25");
         inputDelete.appendChild(document.createTextNode("Delete "));
 
-        li.insertBefore(imageTag, li.firstChild);
-        li.appendChild(inputEdit);
-        li.appendChild(inputDelete);
+
+        let inputDivTag = document.createElement("div");
+        inputDivTag.setAttribute("class", "li__actions");
+        inputDivTag.appendChild(inputEdit);
+        inputDivTag.appendChild(inputDelete);
+
+        let imgDivTag = document.createElement("div");
+        imgDivTag.setAttribute("class", "li__img");
+        imgDivTag.appendChild(imageTag);
+
+        li.insertBefore(imgDivTag, li.firstChild);
+        li.appendChild(inputDivTag);
         
         displayList.appendChild(li);
 
@@ -115,8 +127,8 @@
         newDiv.setAttribute("id", newTagId);
         newDiv.setAttribute("src", url);
         newDiv.setAttribute("alt", text);
-        newDiv.setAttribute("heigth", "30");
-        newDiv.setAttribute("width", "30");
+        // newDiv.setAttribute("heigth", "30");
+        // newDiv.setAttribute("width", "30");
         return newDiv;
     }
 
@@ -240,7 +252,7 @@
                     let inputEdit = createTagNTextnode("INPUT", "edit-" + responseObj._id, " Edit ");
                     inputEdit.setAttribute("class", "edit" );
                     inputEdit.setAttribute("type", "image");
-                    inputEdit.setAttribute("src", "images/button_hw4/edit.png");
+                    inputEdit.setAttribute("src", "images/button/edit-regular.svg");
                     inputEdit.setAttribute("alt", "edit");
                     inputEdit.setAttribute("width", "25");
                     inputEdit.setAttribute("height", "25");
@@ -250,16 +262,25 @@
                     let inputDelete = createTagNTextnode("INPUT", "delete-"+ responseObj._id, "Delete ");
                     inputDelete.setAttribute("class", "delete");
                     inputDelete.setAttribute("type", "image");
-                    inputDelete.setAttribute("src", "images/button_hw4/delete.png");
+                    inputDelete.setAttribute("src", "images/button/trash-alt-regular.svg");
                     inputDelete.setAttribute("alt", "edit");
                     inputDelete.setAttribute("width", "25");
                     inputDelete.setAttribute("height", "25");
                     inputDelete.appendChild(document.createTextNode("Delete "));
 
-                    li.appendChild(imageTag);
+                    let inputDivTag = document.createElement("div");
+                    inputDivTag.setAttribute("class", "li__actions");
+                    inputDivTag.appendChild(inputEdit);
+                    inputDivTag.appendChild(inputDelete);
+
+                    let imgDivTag = document.createElement("div");
+                    imgDivTag.setAttribute("class", "li__img");
+                    imgDivTag.appendChild(imageTag);
+
+
+                    li.appendChild(imgDivTag);
                     li.appendChild(textNode);
-                    li.appendChild(inputEdit);
-                    li.appendChild(inputDelete);
+                    li.appendChild(inputDivTag);
                     li.setAttribute("id","li-" + responseObj._id);
 
                     childToReplaced.parentNode.replaceChild(li, childToReplaced);
@@ -297,8 +318,8 @@
                 let outputNode = document.getElementById("display-info-output");
                 
                 let imgNode = createImgTag("img", "", movieObj.image, "movieImage");
-                imgNode.setAttribute("width", "250");
-                imgNode.setAttribute("height", "250");
+                // imgNode.setAttribute("width", "250");
+                // imgNode.setAttribute("height", "250");
                 let titleNode = createTagNTextnode("h5", '' , `Title: ${movieObj.title}`);
                 let yearNode = createTagNTextnode("h5", "", `Year: ${movieObj.year}`);
                 let genreNode = createTagNTextnode("h5", "", `Genre: ${movieObj.genre}`);
@@ -389,7 +410,7 @@
         
                 if(localStorage.length == 1){ //add back the div tag
                     //emptyList.setAttribute("style", "visibility: visible");
-                    var noMoviespan = createTagNTextnode("SPAN", "movie-listing", "NO Movie Currently Listed ");
+                    var noMoviespan = createTagNTextnode("DIV", "movie-listing", "NO Movie Currently Listed ");
                     document.body.insertBefore(noMoviespan, addMovieBtn );
                 }
                 movieKey = "";
