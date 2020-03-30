@@ -19,6 +19,8 @@
                 var obj = JSON.parse(xhr.response);//convert the json sent by the api
                 localStorage.setItem("access_token", JSON.stringify({access_token : obj.id}));// save the access_token in localstorage
                 //setTimeout(function(){location.href = "movies.html";}, 0);
+                document.body.classList.remove('loader');
+                document.querySelector('.login-box').style.visibility = "none";
                 window.location.href = "movies.html";
 
 				// else if (xhr.status === 304){
@@ -26,9 +28,12 @@
 				// 	localStorage.setItem("access_token", JSON.stringify({access_token : obj.id}));// save the access_token in localstorage
 				// 	setTimeout(function(){location.href = "movies.html";}, 0);
             }
+            
         }
         //let formData = new FormData(loginForm);
         const payload = `username=${username.value}&password=${password.value}`;
         xhr.send(payload);
+        document.body.classList.add('loader');
+        document.querySelector('.login-box').style.visibility = "hidden";
     });
 })();
