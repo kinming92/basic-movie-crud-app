@@ -199,6 +199,13 @@
                 z-index: 99;
                 width: 50%;
             }
+            
+
+            #display-info-output .img-wrapper{ 
+                display: flex;
+                justify-content: center;
+            }
+
             #delete-dialog{
                 background-color: lightsalmon;
                 z-index: 99;
@@ -230,7 +237,7 @@
                 padding: 5px;
             }
             .list li img{
-                height: 200px;
+                height: 250px;
                 width: 200px;   
             }
 
@@ -239,6 +246,14 @@
                 justify-content: space-evenly;
                 padding: 10px;
             }
+
+            .list li input:hover,
+            .list li input:active{
+                transition: transform .2s; /* Animation */
+                transform: scale(1.5);
+            }
+
+
             /* #display-list {
                 margin : 0;
                 padding: 0;

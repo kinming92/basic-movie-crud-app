@@ -239,7 +239,8 @@
                     localStorage.setItem( responseObj._id, JSON.stringify(item));
 
                      /*create li element*/
-                    var text = `${cleanTitle} (${year}) ${genre} - ${rating} - User Rating: ${userRating}`;
+                    var text = `${cleanTitle} (${year}) `;
+                    //`${genre} - ${rating} - User Rating: ${userRating}`;
                     let childToReplaced = document.getElementById("li-"+movieKey);
                     let li = document.createElement("li");
                     let textNode = document.createTextNode(text);
@@ -300,45 +301,51 @@
 
     /* Get the UL element, add a click listener for each LI */
     document.getElementById("display-list").addEventListener("click", function(e) {
+        if(e.target && e.target.nodeName == "IMG"){
+             // the list is clicked, display the info for the movie
+             movieKey = e.target.id.replace("img-","");
+             console.log(movieKey);
+             
+             if (typeof displayInfoDialog.showModal === "function") { //show the deleteDialog
+                 displayInfoDialog.showModal();
+                 retrievedData = localStorage.getItem(movieKey);
+                 let movieObj = JSON.parse(retrievedData);
+ 
+                 let outputNode = document.getElementById("display-info-output");
+                 
+                 let imgNode = createImgTag("img", "", movieObj.image, "movieImage");
+                 imgNode.setAttribute("width", "250");
+                 imgNode.setAttribute("height", "300");
+                 let titleNode = createTagNTextnode("h5", '' , `Title: ${movieObj.title}`);
+                 let yearNode = createTagNTextnode("h5", "", `Year: ${movieObj.year}`);
+                 let genreNode = createTagNTextnode("h5", "", `Genre: ${movieObj.genre}`);
+                 let ratingNode = createTagNTextnode("h5", "", `Rating: ${movieObj.rating}`);
+                 let UserRatingNode = createTagNTextnode("h5", "", `UserRating: ${movieObj.userRating}`);
+                 
+                 let imgDivNode = document.createElement("div");
+                 imgDivNode.setAttribute("class", "img-wrapper");
+                 imgDivNode.appendChild(imgNode);
+                 
+                 
+                 outputNode.appendChild(imgDivNode);
+                 outputNode.appendChild(titleNode);
+                 outputNode.appendChild(yearNode);
+                 outputNode.appendChild(genreNode);
+                 outputNode.appendChild(ratingNode);
+                 outputNode.appendChild(UserRatingNode);
+                 
+             } else {
+               alert("The dialog API is not supported by this browser");
+             }
+        };
         
-        if(e.target && e.target.nodeName == "LI") {// e.target is the clicked element! If it was a list item
-            console.log("List item ", e.target.id, " was clicked!"); // List item found!  Output the ID!
-        }
+        // if(e.target && e.target.nodeName == "LI") {// e.target is the clicked element! If it was a list item
+        //     //console.log("List item ", e.target.id, " was clicked!"); // List item found!  Output the ID!
+        // }
 
-        if(e.target && e.target.nodeName == "LI" && e.target.className != "edit" && e.target.className != "delete"){
-            // the list is clicked, display the info for the movie
-            movieKey = e.target.id.replace("li-","");
-            console.log(movieKey);
-            
-            if (typeof displayInfoDialog.showModal === "function") { //show the deleteDialog
-                displayInfoDialog.showModal();
-                retrievedData = localStorage.getItem(movieKey);
-                let movieObj = JSON.parse(retrievedData);
-
-                let outputNode = document.getElementById("display-info-output");
-                
-                let imgNode = createImgTag("img", "", movieObj.image, "movieImage");
-                imgNode.setAttribute("width", "250");
-                imgNode.setAttribute("height", "250");
-                let titleNode = createTagNTextnode("h5", '' , `Title: ${movieObj.title}`);
-                let yearNode = createTagNTextnode("h5", "", `Year: ${movieObj.year}`);
-                let genreNode = createTagNTextnode("h5", "", `Genre: ${movieObj.genre}`);
-                let ratingNode = createTagNTextnode("h5", "", `Rating: ${movieObj.rating}`);
-                let UserRatingNode = createTagNTextnode("h5", "", `UserRating: ${movieObj.userRating}`);
-
-                outputNode.appendChild(imgNode);
-                outputNode.appendChild(titleNode);
-                outputNode.appendChild(yearNode);
-                outputNode.appendChild(genreNode);
-                outputNode.appendChild(ratingNode);
-                outputNode.appendChild(UserRatingNode);
-                
-            } else {
-              alert("The dialog API is not supported by this browser");
-            }
-
-
-        }
+        // if(e.target && e.target.nodeName == "LI" && e.target.className != "edit" && e.target.className != "delete"){
+           
+        // }
 
         if(e.target && e.target.nodeName == "INPUT" && e.target.className == "edit"){ // If it was a edit span element
             movieKey = e.target.id.replace("edit-","");
