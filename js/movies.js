@@ -205,7 +205,8 @@
                         image: cleanImgUrl
                     }
                     localStorage.setItem( responseObj._id, JSON.stringify(item));
-                    var text = `${cleanTitle} (${year}) ${genre} - ${rating} - User Rating: ${userRating}`;
+                    var text = `${cleanTitle} (${year})`;
+                    //${genre} - ${rating} - User Rating: ${userRating}`;
                     createNewMovieListing(`${responseObj._id}`, text, `${cleanImgUrl}`);
                     addMovieDialog.close();
                 }

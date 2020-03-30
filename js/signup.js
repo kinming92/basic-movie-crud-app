@@ -5,6 +5,13 @@
     let email = document.getElementById("email");
     let password = document.getElementById("password");
     let reenterPassword = document.getElementById("reenter-password");
+    let successDialog = document.getElementById("signup-success-dialog");
+    let checkBtn = document.getElementById("check-btn");
+
+    checkBtn.addEventListener("click", function(event){
+        event.preventDefault();
+        location.href = "login.html";
+    });
 
     
 
@@ -41,8 +48,13 @@
                 console.log(xhr.responseText);
                 var obj = JSON.parse(xhr.response);//convert the json sent by the api
                 //sign-up successfull
-                alert("Signup Successfull Redicting to Login Page");
-                location.href = "login.html";
+                // alert("Signup Successfull Redicting to Login Page");
+                if (typeof successDialog.showModal === "function") {
+                    successDialog.showModal();
+                } else {
+                    alert("The <dialog> API is not supported by this browser");
+                }
+                //location.href = "login.html";
             }
         }
         //let formData = new FormData(myForm);
