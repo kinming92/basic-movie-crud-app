@@ -56,10 +56,10 @@
                 }
                 
                 var text = 
-                    `${responseObj.movies[i].title} (${responseObj.movies[i].year})
-                    Genre: ${responseObj.movies[i].genre}
-                    Rating: ${responseObj.movies[i].rating}
-                    User Rating: ${responseObj.movies[i].userRating}`;
+                    `${responseObj.movies[i].title} (${responseObj.movies[i].year})`;
+                    // Genre: ${responseObj.movies[i].genre}
+                    // Rating: ${responseObj.movies[i].rating}
+                    // User Rating: ${responseObj.movies[i].userRating}`;
 
                 createNewMovieListing(`${responseObj.movies[i]._id}`,text, `${responseObj.movies[i].image}`);
                 localStorage.setItem(`${responseObj.movies[i]._id}`,JSON.stringify(item));
@@ -318,8 +318,8 @@
                 let outputNode = document.getElementById("display-info-output");
                 
                 let imgNode = createImgTag("img", "", movieObj.image, "movieImage");
-                // imgNode.setAttribute("width", "250");
-                // imgNode.setAttribute("height", "250");
+                imgNode.setAttribute("width", "250");
+                imgNode.setAttribute("height", "250");
                 let titleNode = createTagNTextnode("h5", '' , `Title: ${movieObj.title}`);
                 let yearNode = createTagNTextnode("h5", "", `Year: ${movieObj.year}`);
                 let genreNode = createTagNTextnode("h5", "", `Genre: ${movieObj.genre}`);
