@@ -4,6 +4,7 @@
     <head>
         <title>Sign up Page</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             *{
                 box-sizing: border-box;
@@ -11,19 +12,16 @@
 
             .signup-box {
                 font-family: "Helvetica", sans-serif;
-                margin: auto;
-                width: 50%;
-                height: 90%;
-                padding: 5vh;
+                margin: 10% auto;
+                max-width: fit-content;
+                width: 80%;
+                height: auto;
+                padding: 10px;
                 background-color:lightsteelblue;
                 font-weight: bold;
                 border: 3px solid #73AD21;
                 border-radius: 2em;
-                box-shadow: 0 2px 8px whitesmoke;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                box-shadow: 0 2px 8px whitesmoke;;
                 z-index: 2;
                 text-align: center;
             }
@@ -41,7 +39,7 @@
                 margin: 20px;
                 background-color: white;
                 color: black;
-                padding: 10px;
+                padding: 10px 10px;
                 border: none;
                 border-radius: 2em;
                 cursor: pointer;
@@ -60,13 +58,16 @@
                 margin: auto;
                 padding: 10px 10px 10px 20px;
                 width: 100%;
-                border: 2px solid #ccc;
+                border: 2px solid lightsteelblue;
                 border-radius: 2em;
-                resize: vertical;
+                /* resize: vertical; */
                 outline: none;
             }
             input:focus {
                 border-color: #73AD21;
+            }
+            p {
+                margin: 10px;
             }
 
             /* dialog {
