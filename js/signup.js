@@ -52,6 +52,7 @@
     const showPasswordMessageBox = () =>{
         document.getElementById("message").style.display = "block";
     }
+
     // When the user clicks outside of the password field, hide the message box
     const disablePasswordMessageBox = () =>  {
         document.getElementById("message").style.display = "none";
@@ -96,11 +97,18 @@
           length.classList.remove("valid");
           length.classList.add("invalid");
         }
+
+        //meet all the required condition for password
+        if(password.value.match(lowerCaseLetters) && password.value.match(upperCaseLetters) &&  password.value.match(numbers) && password.value.length >= 6){
+            disablePasswordMessageBox();
+        }else{
+            showPasswordMessageBox();
+        }
     }
     
     password.onkeyup = checkPasswordValidity;
-    password.onfocus = showPasswordMessageBox;
-    password.onblur = disablePasswordMessageBox;
+    // password.onfocus = showPasswordMessageBox;
+    // password.onblur = disablePasswordMessageBox;
     email.addEventListener('change', checkEmailValidity, false);
     password.addEventListener('change', checkMatchingPassword, false);
     reenterPassword.addEventListener('keyup', checkMatchingPassword, false);
