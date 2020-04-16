@@ -6,6 +6,8 @@
     const password = document.getElementById("password");
     const reenterPassword = document.getElementById("reenter-password");
     const successDialog = document.getElementById("signup-success-dialog");
+    //polyfill the dialog
+    dialogPolyfill.registerDialog(successDialog);
     const checkBtn = document.getElementById("check-btn");
     
     //for password validation message

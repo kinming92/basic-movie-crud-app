@@ -5,6 +5,7 @@
         <title>Sign up Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="dist/dialog-polyfill.css" />
         <style>
             *{
                 box-sizing: border-box;
@@ -168,7 +169,7 @@
 
         <dialog id="signup-success-dialog">
             <div class="signup-success-dialog__container" >
-                <p>Signup Successfull Redicting to Login Page!</p>
+                <p>Signup Successful!</p>
                 <button type="button" id="check-btn">
                     <span style="font-size: 20px; color: green; cursor: pointer;">
                         <i class="fas fa-check-circle"></i>
@@ -177,6 +178,7 @@
             </div>
         </dialog>
 
+        <script src="dist/dialog-polyfill.js"></script>
         <script type="module" src="js/signup.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
     </body>

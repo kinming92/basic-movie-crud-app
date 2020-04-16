@@ -4,7 +4,8 @@
     let movieListing = document.getElementById("movie-listing");
     
     var addMovieBtn = document.getElementById("add-movie-btn"); 
-    let addMovieDialog = document.getElementById("add-movie-dialog");
+    const addMovieDialog = document.getElementById("add-movie-dialog");
+    dialogPolyfill.registerDialog(addMovieDialog);
     let movieDialogCancel = document.getElementById("movie-dialog-cancel-btn");
     let movieDialogSave = document.getElementById("movie-dialog-save-btn");
     var movieForm = document.getElementById("movie-form");
@@ -22,8 +23,11 @@
     let deleteDialogOkay = document.getElementById("delete-dialog-okay-btn");
     let deleteDialogCancel = document.getElementById("delete-dialog-cancel-btn");
     let deleteDialog = document.getElementById("delete-dialog");
+    dialogPolyfill.registerDialog(deleteDialog);
 
     let displayInfoDialog = document.getElementById("display-info-dialog");
+    dialogPolyfill.registerDialog(displayInfoDialog);
+    
     let displayInfoCancelBtn = document.getElementById("display-info-dialog-cancel-btn");
     
     var movieKey = "";
