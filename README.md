@@ -9,8 +9,6 @@ Movie Collection Website that allow user to create and maintain a list of their 
 - movies.js
 - signup.js
 - login.js
-- index.php(deployment)
-- composer.json(deployment)
 
 ## Technologies 
 1. Website is built using Vanilla JavaScript, CSS, and HTML5 
