@@ -1,165 +1,53 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html>
+    
 <head>
-    <title>Login Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        * {
-            box-sizing: border-box;
-
-        }
-
-        /* .container {
-            
-            display: block;
-        } */
-        .login-box {
-            font-family: "Helvetica", sans-serif;
-            background-color: lightsteelblue;
-            width: 80%;
-            max-width: fit-content;
-            height: auto;
-            margin: 10% auto;
-            padding: 10px;
-            font-weight: bold;
-            border: 3px solid #73AD21;
-            box-shadow: 0 2px 8px whitesmoke;
-            border-radius: 2em;
-            z-index: 2;
-            /* transform: translate(-50%, -50%); */
-            text-align: center;
-            
-        }
-
-        .login-box h1 {
-            font-size: 30px;
-        }
-        body {
-            background-color: #000000da;
-        }
-        .login-form{
-            display: block;
-        }
-
-        #login-btn {
-            width: 50%;
-            margin: 20px;
-            background-color: white;
-            border: 2px solid #ccc;
-            color: black;
-            padding: 10px 10px;
-            border: none;
-            border-radius: 2em;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        #login-btn:hover,
-        #login-btn:active {
-            background-color: black;
-            color: white;
-        }
-
-        label {
-            float: left;
-            margin: 10px;
-        }
-
-        input {
-            margin: auto;
-            padding: 10px 10px 10px 20px;
-            width: 100%;
-            border: 2px solid lightsteelblue;
-            border-radius: 2em; 
-            outline: none;   
-        }
-
-        input:focus {
-            border-color: #73AD21;
-        }
-
-        p {
-            margin: 10px;
-        }
-
-        body.loader,
-        body.loader:after {
-            border-radius: 50%;
-            width: 10em;
-            height: 10em;
-        }
-
-        body.loader {
-            margin: 60px auto;
-            font-size: 10px;
-            position: relative;
-            text-indent: -9999em;
-            border-top: 1.1em solid rgba(176, 196, 222, 0.2);
-            border-right: 1.1em solid rgba(176, 196, 222, 0.2);
-            border-bottom: 1.1em solid rgba(176, 196, 222, 0.2);
-            border-left: 1.1em solid #b0c4de;
-            -webkit-transform: translateZ(0);
-            -ms-transform: translateZ(0);
-            transform: translateZ(0);
-            -webkit-animation: load8 1.1s infinite linear;
-            animation: load8 1.1s infinite linear;
-        }
-
-        @-webkit-keyframes load8 {
-            0% {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes load8 {
-            0% {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-
-      
-    </style>
+	<title>My Awesome Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
 
 <body>
-
-    <!-- <div class="loader">Loading...</div> -->
-    <div class="container">
-        <div class="login-box">
-            <h1>Login</h1>
-            <form id="login-form" name="login-form">
-                <label for="username">Username: </label>
-                <input type="text" name="username" id="username" placeholder="test" required><br>
-    
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password" placeholder="test" required><br>
-    
-                <button type="submit" formenctype="application/x-www-form-urlencoded" value="login"
-                    id="login-btn">Login</button>
-            </form>
-    
-            <p>Don't have an account? <a href="signup.html">Sign up</a> </p>
-        </div>  
-    </div>
-
-    <script src="js/login.js"></script>
-
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				
+				<div class="d-flex justify-content-center form_container">
+					<form>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input type="text" name="" class="form-control input_user" value="" placeholder="username">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+						</div>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember me</label>
+							</div>
+						</div>
+							<div class="d-flex justify-content-center mt-3 login_container">
+				 	<button type="button" name="button" class="btn login_btn">Login</button>
+				   </div>
+					</form>
+				</div>
+		
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links">
+						Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+					</div>
+					<div class="d-flex justify-content-center links">
+						<a href="#">Forgot your password?</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-
 </html>
