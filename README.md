@@ -15,5 +15,5 @@ Movie Collection Website that allow user to create and maintain a list of their 
 2. Validated by https://validator.w3.org/
 
 ## Backend
-1. [](https://github.com/kinming92/movie-website-rest-api)
-2. [](https://github.com/kinming92/movie-collection-website-nodejs-mysql-sequelize)
+1. [MongoDB](https://github.com/kinming92/movie-website-rest-api)
+2. [MySQL sever](https://github.com/kinming92/movie-collection-website-nodejs-mysql-sequelize)
