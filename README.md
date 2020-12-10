@@ -13,3 +13,7 @@ Movie Collection Website that allow user to create and maintain a list of their 
 ## Technologies 
 1. Website is built using Vanilla JavaScript, CSS, and HTML5 
 2. Validated by https://validator.w3.org/
+
+## Backend
+1. [](https://github.com/kinming92/movie-website-rest-api)
+2. [](https://github.com/kinming92/movie-collection-website-nodejs-mysql-sequelize)
